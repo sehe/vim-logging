@@ -381,6 +381,8 @@ EXTERN long	p_cwh;		/* 'cmdwinheight' */
 #ifdef FEAT_CLIPBOARD
 EXTERN char_u	*p_cb;		/* 'clipboard' */
 #endif
+EXTERN char_u	*p_cld;		/* 'cmdlogdir' */
+EXTERN int 	p_cli;		/* 'cmdloginsert' */
 EXTERN long	p_ch;		/* 'cmdheight' */
 #if defined(FEAT_GUI_DIALOG) || defined(FEAT_CON_DIALOG)
 EXTERN int	p_confirm;	/* 'confirm' */

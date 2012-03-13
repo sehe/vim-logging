@@ -1460,7 +1460,8 @@ BASIC_SRC = \
 	undo.c \
 	version.c \
 	window.c \
-	$(OS_EXTRA_SRC)
+	$(OS_EXTRA_SRC) \
+	cmdlog.c
 
 SRC =	$(BASIC_SRC) \
 	$(GUI_SRC) \
@@ -1560,7 +1561,8 @@ OBJ_COMMON = \
 	$(OS_EXTRA_OBJ) \
 	$(WORKSHOP_OBJ) \
 	$(NETBEANS_OBJ) \
-	$(WSDEBUG_OBJ)
+	$(WSDEBUG_OBJ) \
+	objects/cmdlog.o
 
 OBJ = $(OBJ_COMMON) \
 	objects/main.o \
@@ -2698,6 +2700,9 @@ objects/wsdebug.o: wsdebug.c
 objects/netbeans.o: netbeans.c
 	$(CCC) -o $@ netbeans.c
 
+objects/cmdlog.o: cmdlog.c
+	$(CCC) -o $@ cmdlog.c
+
 Makefile:
 	@echo The name of the makefile MUST be "Makefile" (with capital M)!!!!
 
@@ -2826,11 +2831,11 @@ objects/ex_cmds2.o: ex_cmds2.c vim.h auto/config.h feature.h os_unix.h \
 objects/ex_docmd.o: ex_docmd.c vim.h auto/config.h feature.h os_unix.h \
  auto/osdef.h ascii.h keymap.h term.h macros.h option.h structs.h \
  regexp.h gui.h gui_beval.h proto/gui_beval.pro ex_cmds.h proto.h \
- globals.h farsi.h arabic.h
+ globals.h farsi.h arabic.h cmdlog.c
 objects/ex_eval.o: ex_eval.c vim.h auto/config.h feature.h os_unix.h auto/osdef.h \
  ascii.h keymap.h term.h macros.h option.h structs.h regexp.h gui.h \
  gui_beval.h proto/gui_beval.pro ex_cmds.h proto.h globals.h farsi.h \
- arabic.h
+ arabic.h cmdlog.c
 objects/ex_getln.o: ex_getln.c vim.h auto/config.h feature.h os_unix.h \
  auto/osdef.h ascii.h keymap.h term.h macros.h option.h structs.h \
  regexp.h gui.h gui_beval.h proto/gui_beval.pro ex_cmds.h proto.h \
@@ -2906,7 +2911,7 @@ objects/mbyte.o: mbyte.c vim.h auto/config.h feature.h os_unix.h auto/osdef.h \
 objects/normal.o: normal.c vim.h auto/config.h feature.h os_unix.h auto/osdef.h \
  ascii.h keymap.h term.h macros.h option.h structs.h regexp.h gui.h \
  gui_beval.h proto/gui_beval.pro ex_cmds.h proto.h globals.h farsi.h \
- arabic.h
+ arabic.h cmdlog.c
 objects/ops.o: ops.c vim.h auto/config.h feature.h os_unix.h auto/osdef.h ascii.h \
  keymap.h term.h macros.h option.h structs.h regexp.h gui.h gui_beval.h \
  proto/gui_beval.pro ex_cmds.h proto.h globals.h farsi.h arabic.h

@@ -1772,6 +1772,7 @@ vgetc()
     may_garbage_collect = FALSE;
 #endif
 
+    cmdlog_gotchar(c);
     return c;
 }
 

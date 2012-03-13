@@ -1329,8 +1329,10 @@ normal_end:
 # ifdef FEAT_AUTOCMD
 	    && ca.cmdchar != K_CURSORHOLD
 # endif
-	    )
+	    ) {
 	clear_showcmd();
+        cmdlog_flush_buf();
+    }
 #endif
 
     checkpcmark();		/* check if we moved since setting pcmark */

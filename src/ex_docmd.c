@@ -1697,6 +1697,11 @@ do_one_cmd(cmdlinep, sourcing,
     char_u		*(*fgetline) __ARGS((int, void *, int));
     void		*cookie;		/* argument for fgetline() */
 {
+
+    if (fgetline == getexline && !sourcing) {
+        cmdlog_flush_buf();
+    }
+
     char_u		*p;
     linenr_T		lnum;
     long		n;

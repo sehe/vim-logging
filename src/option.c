@@ -758,6 +758,12 @@ static struct vimoption
 			    {(char_u *)"", (char_u *)0L}
 #endif
 			    SCRIPTID_INIT},
+    {"cmdlogdir",   "cld", P_STRING|P_EXPAND|P_VI_DEF|P_COMMA|P_NODUP|P_SECURE,
+ 			    (char_u *)&p_cld, PV_NONE,
+ 			    {(char_u *)"", (char_u *)0L}},
+    {"cmdloginsert","cli",  P_BOOL|P_VI_DEF|P_VIM|P_RALL,
+			    (char_u *)&p_cli, PV_NONE,
+			    {(char_u *)FALSE, (char_u *)0L}},
     {"cmdheight",   "ch",   P_NUM|P_VI_DEF|P_RALL,
 			    (char_u *)&p_ch, PV_NONE,
 			    {(char_u *)1L, (char_u *)0L} SCRIPTID_INIT},
@@ -10396,6 +10402,7 @@ set_context_in_set_cmd(xp, arg, opt_flags)
     {
 	p = options[opt_idx].var;
 	if (p == (char_u *)&p_bdir
+		|| p == (char_u *)&p_cld
 		|| p == (char_u *)&p_dir
 		|| p == (char_u *)&p_path
 		|| p == (char_u *)&p_rtp
